@@ -133,7 +133,7 @@ def octagon_only(connection, edges):
 "[((1,0),(~8,0)), ...]"
 
 if __name__ == "__main__":
-    print('hello')
+    
     
     triangulation = [(~1, ~8, ~0), (~7, 3, 8), (~2, ~6, 7), (~5, 2, 6), (~3, ~4, 5), (0, 1, 4)]
     intersection1 = [1, 0, 1, 0, 1, 1, 0, 1, 1]
