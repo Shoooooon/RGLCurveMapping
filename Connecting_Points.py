@@ -136,7 +136,7 @@ if __name__ == "__main__":
     
     
     triangulation = [(~1, ~8, ~0), (~7, 3, 8), (~2, ~6, 7), (~5, 2, 6), (~3, ~4, 5), (0, 1, 4)]
-    intersection1 = [1, 0, 1, 0, 1, 1, 0, 1, 1]
+    intersection1 = [1,0,1,0,1,1,0,1,1]
     intersection2 = [2, 1, 1, 0, 1, 1, 0, 1, 1]
     intersection3 = [0, 1, 0, 1, 1, 0, 0, 0, 1]
     print(connecting(triangulation, intersection1))

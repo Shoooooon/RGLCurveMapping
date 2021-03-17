@@ -6,14 +6,25 @@
 import Connecting_Points as cp
 
 from sys import argv
+import flipper
 
-script, curve = argv
+script, init_curve, mapping_class, iterations = argv
 
-curve = [int(c) for c in curve]
+
 
 triangulation = [(~1, ~8, ~0), (~7, 3, 8), (~2, ~6, 7), (~5, 2, 6), (~3, ~4, 5), (0, 1, 4)]
 edges = [1, 6, 7, 8]
 
-out = cp.octagon_only(cp.connecting(triangulation, curve),edges)
+S = flipper.load('S_2_1')
+
+h = S.mapping_class(mapping_class)
+
+curve = S.lamination(init_curve)
+
+for i in range(int(iterations)):
+	curve = h(curve)
+
+
+out = cp.connecting(triangulation, curve.geometric)
 
 print(out)
