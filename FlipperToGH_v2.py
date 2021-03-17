@@ -25,6 +25,7 @@ for i in range(int(iterations)):
 	curve = h(curve)
 
 
-out = cp.connecting(triangulation, curve.geometric)
+out = cp.octagon_only(cp.connecting(triangulation, curve.geometric),edges)
+#out = cp.connecting(triangulation, curve.geometric)
 
 print(out)
