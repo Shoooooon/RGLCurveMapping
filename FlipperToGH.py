@@ -3,7 +3,7 @@
 ## this is a python executable that will be called from GH to get curve data using Connecting_Points.py
 
 
-import Connecting_Points as cp
+import Connecting_Points_0409 as cp
 
 from sys import argv
 
@@ -16,4 +16,15 @@ edges = [1, 6, 7, 8]
 
 out = cp.octagon_only(cp.connecting(triangulation, curve),edges)
 
-print(out)
+D = {1:3, -2:7, 6:1, -7:5, 7:2, -8:6, 8:0, -9:4}
+
+
+new_out = []
+for tup in out:
+	new_tup = ((D[tup[0][0]], tup[0][1]),(D[tup[1][0]], tup[1][1]))
+	new_out.append(new_tup)
+
+
+
+
+print(new_out)
