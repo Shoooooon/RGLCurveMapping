@@ -99,7 +99,7 @@ def octagon_only(connection, edges):
                     octagon_con.append((connection[i][0], connection[j][1]))
                     break
     "The last tuple that connects back to the starting point may not be included, so we add it here."
-    if connection[0][0][0] not in edges or -1-connection[0][0][0] not in edges:
+    if connection[0][0][0] not in edges and -1-connection[0][0][0] not in edges:
         lastone = (-1-octagon_con[len(octagon_con)-1][1][0], octagon_con[len(octagon_con)-1][1][1])
         firstone = (-1-octagon_con[0][0][0], octagon_con[0][0][1])
         octagon_con.append((lastone, firstone))
@@ -136,15 +136,8 @@ def octagon_only(connection, edges):
 if __name__ == "__main__":
     print('hello')
     
-    triangulation = [(~1, ~8, ~0), (~7, 3, 8), (~2, ~6, 7), (~5, 2, 6), (~3, ~4, 5), (0, 1, 4)]
-    intersection1 = [1, 0, 1, 0, 1, 1, 0, 1, 1]
-    intersection2 = [2, 1, 1, 0, 1, 1, 0, 1, 1]
-    intersection3 = [0, 1, 0, 1, 1, 0, 0, 0, 1]
-    print(connecting(triangulation, intersection1))
-    print(connecting(triangulation, intersection2))
-    print(connecting(triangulation, intersection3))
+    triangulation = [(1, 8, 0), (7, ~3, ~8), (2, 6, ~7), (5, ~2, ~6), (3, 4, ~5), (~0, ~1, ~4)]
+
     edges = [1, 6, 7, 8]
-    print(octagon_only(connecting(triangulation, intersection3), edges))
-    print(octagon_only(connecting(triangulation, intersection2), edges))
-    print(octagon_only(connecting(triangulation, intersection1), edges))
+
 

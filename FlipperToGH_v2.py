@@ -4,6 +4,7 @@
 
 
 import Connecting_Points_0409 as cp
+import Reordering_points as rp
 
 from sys import argv
 import flipper
@@ -24,9 +25,9 @@ curve = S.lamination(init_curve)
 for i in range(int(iterations)):
 	curve = h(curve)
 
-
 out = cp.octagon_only(cp.connecting(triangulation, curve.geometric),edges)
 #out = cp.connecting(triangulation, curve.geometric)
+out = rp.reorder_list(out)
 
 D = {1:3, -2:7, 6:1, -7:5, 7:2, -8:6, 8:0, -9:4}
 
