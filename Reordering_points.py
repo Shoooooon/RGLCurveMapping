@@ -54,16 +54,16 @@ def compare_index(connection1, connection2):
 #((1,0),(8,1)) ((1,2),(8,0))
 
 
-def reorder_same_type(this_type, type):
+def reorder_same_type(this_type, type0):
     # This function reorders a list of connections of the same type, i. e. connecting the same pair of edges.
-    if (type in deg1) == True:
-        orientation = deg1[type]
-    elif (type in deg2) == True:
-        orientation = deg2[type]
-    elif (type in deg3) == True:
-        orientation = deg3[type]
-    elif (type in deg4) == True:
-        orientation = deg4[type]
+    if (type0 in deg1) == True:
+        orientation = deg1[type0]
+    elif (type0 in deg2) == True:
+        orientation = deg2[type0]
+    elif (type0 in deg3) == True:
+        orientation = deg3[type0]
+    elif (type0 in deg4) == True:
+        orientation = deg4[type0]
     this_type_new = [this_type[0]]
     for connection in this_type[1:]:
         for i in range(0, len(this_type_new)):
@@ -89,16 +89,16 @@ def reorder_same_degree(conn_list):
     original_list = conn_list
     reorder_list = []
     while len(original_list) > 0:
-        type = getpair(original_list[0])
+        type0 = getpair(original_list[0])
         this_type = []
         to_remove = []
         for connection in original_list:
-            if getpair(connection) == type:
+            if getpair(connection) == type0:
                 this_type.append(connection)
                 to_remove.append(connection)
         for connection in to_remove:
             original_list.remove(connection)
-        reorder_list = reorder_list + reorder_same_type(this_type, type)
+        reorder_list = reorder_list + reorder_same_type(this_type, type0)
     return reorder_list
 
 
